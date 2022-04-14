@@ -1,0 +1,27 @@
+﻿<Window x:Class="Diplom_Posledmnii.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Diplom_Posledmnii"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="400">
+    <Grid>
+        <Button Content="Подключиться к базе данных" HorizontalAlignment="Left" x:Name="ButtonMigr" Margin="153,361,0,0" VerticalAlignment="Top" Width="174" Click="ButtonMigr_Click"/>
+        <TextBox HorizontalAlignment="Left" Margin="141,117,0,0" TextWrapping="Wrap" x:Name="AdressMySql"  VerticalAlignment="Top" Width="198"/>
+        <TextBox HorizontalAlignment="Left" Margin="141,165,0,0" TextWrapping="Wrap" x:Name="NameBaseMySql" VerticalAlignment="Top" Width="198"/>
+        <TextBox HorizontalAlignment="Left" Margin="141,217,0,0" TextWrapping="Wrap" x:Name="LoginMySql" VerticalAlignment="Top" Width="198"/>
+        <TextBox HorizontalAlignment="Left" Margin="141,257,0,0" TextWrapping="Wrap" x:Name="PasswordMySql" VerticalAlignment="Top" Width="198"/>
+        <TextBlock HorizontalAlignment="Left" Margin="38,119,0,0" TextWrapping="Wrap" Text="Адресс" VerticalAlignment="Top"/>
+        <TextBlock HorizontalAlignment="Left" Margin="38,170,0,0" TextWrapping="Wrap" Text="имя базы" VerticalAlignment="Top"/>
+        <TextBlock HorizontalAlignment="Left" Margin="41,219,0,0" TextWrapping="Wrap" Text="логин" VerticalAlignment="Top" Width="49"/>
+        <TextBlock HorizontalAlignment="Left" Margin="38,262,0,0" TextWrapping="Wrap" Text="пароль" VerticalAlignment="Top"/>
+
+
+        <TextBlock HorizontalAlignment="Left" Margin="153,65,0,0" TextWrapping="Wrap" Text="MySQL" VerticalAlignment="Top" Height="27" Width="48"/>
+
+        <TextBox HorizontalAlignment="Left" Margin="141,307,0,0"  x:Name="PortMysql" TextWrapping="Wrap" VerticalAlignment="Top" Width="198"/>
+        <TextBlock HorizontalAlignment="Left" Margin="38,307,0,0" Text="порт" TextWrapping="Wrap" VerticalAlignment="Top" Height="18" Width="63"/>
+
+    </Grid>
+</Window>

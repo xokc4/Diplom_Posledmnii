@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Diplom_Posledmnii.WindowsWPF"
         mc:Ignorable="d"
-        Title="ConnectPostgresSqlWPF" Height="400" Width="300">
+        Title="Подключение к PostgreSql" Height="400" Width="300">
     <Grid>
 
         <TextBox HorizontalAlignment="Left" Margin="150,242,0,0" TextWrapping="Wrap" x:Name="PasswordPGSql" VerticalAlignment="Top" Width="120"/>

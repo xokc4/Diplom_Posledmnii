@@ -40,7 +40,7 @@ namespace MySqlBD
         public static List<string> DatabaseTablies()
         {
             MySqlConnection conn = GetDBConnection(HOST, PORT, DATABASE, USERNAME, PASSWORD);
-            string sql = $"SHOW OPEN TABLES;";
+            string sql = $"SHOW TABLES;";
             conn.Open();
 
             List<string> List = new List<string>();
@@ -57,20 +57,52 @@ namespace MySqlBD
             conn.Close();
             return List;
         }
-        public static string TabliesOne(string NameTable)
+
+
+
+        public static Dictionary<string, string> TabliesOne(string NameTable)
         {
             MySqlConnection conn = GetDBConnection(HOST, PORT, DATABASE, USERNAME, PASSWORD);
-
-            string sql = $" SHOW[FULL] COLUMNS FROM {NameTable}[FROM {DATABASE}] [LIKE wild]";
-
+            string sql = $"DESCRIBE {NameTable};";
+            conn.Open();
             MySqlCommand cmd = new MySqlCommand(sql, conn);
-
             MySqlDataReader reader = cmd.ExecuteReader();
-            return "54";
+            Dictionary<string, string> InfTables = new Dictionary<string, string>();
+            while (reader.Read())
+            {
+                InfTables.Add(reader[0].ToString(), reader[1].ToString());
+            }
+            reader.Close();
+            conn.Close();
+            return InfTables;
         }
-        public static string INF_Table(string NameTable)
+        public static List<string> INF_Table(string NameTable)
         {
-            return "23";
+            MySqlConnection conn = GetDBConnection(HOST, PORT, DATABASE, USERNAME, PASSWORD);
+            string sql = $"SELECT * FROM {NameTable};";
+            conn.Open();
+            MySqlCommand cmd = new MySqlCommand(sql, conn);
+            MySqlDataReader reader = cmd.ExecuteReader();
+            List<string> List = new List<string>();
+            while (reader.Read())
+            {
+                string inf ="";
+               for (int i=0;i<reader.FieldCount;i++)
+               {
+                    if(i==0)
+                    {
+                        inf += $"{reader[i]}";
+                    }
+                    else
+                    {
+                        inf += $",{reader[i]}";
+                    }
+               }
+                List.Add(inf);
+            }
+            reader.Close();
+            conn.Close();
+            return List;
         }
     }
 }

@@ -30,7 +30,9 @@ namespace Diplom_Posledmnii
             try
             {
                 MySqlBD.MySqlDataBase.GetDBConnection(AdressMySql.Text, PortMysql.Text, NameBaseMySql.Text, LoginMySql.Text, PasswordMySql.Text);
+                
                 List<string> NameTable = MySqlBD.MySqlDataBase.DatabaseTablies();
+               
                 WindowsWPF.ScriptingAndMigration scripting = new WindowsWPF.ScriptingAndMigration(NameTable);
                 scripting.Show();
                 this.Close();

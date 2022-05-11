@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Diplom_Posledmnii.WindowsWPF"
         mc:Ignorable="d"
-        Title="ScriptingAndMigration" Height="450" Width="700">
+        Title="Главная страница" Height="450" Width="700">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="27*"/>
@@ -13,32 +13,31 @@
             <RowDefinition Height="18*"/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="427*"/>
-            <ColumnDefinition Width="373*"/>
+            <ColumnDefinition Width="319*"/>
+            <ColumnDefinition Width="381*"/>
         </Grid.ColumnDefinitions>
-        <ListBox   Grid.Column="0" Name="ListTables" Grid.Row="1" >
+        <ListBox   Grid.Column="0" Name="ListTables" Margin="10,54,0,0" Grid.RowSpan="2" >
             <ListBox.ItemTemplate >
                 <DataTemplate >
-                    <Grid>
-                        <TextBox  Text="{Binding  NameTable}"></TextBox>
-                        <CheckBox HorizontalAlignment="Left" Margin="28,0,0,0" VerticalAlignment="Center"/>
+                    <Grid >
+                        <CheckBox BorderBrush="Black" Content="{Binding  NameTable}" HorizontalAlignment="Left" Margin="10,0,0,0" VerticalAlignment="Center" Checked="CheckBoxNameTb" />
                     </Grid>
                 </DataTemplate>
             </ListBox.ItemTemplate>
         </ListBox>
-        <ListBox   Grid.Column="1" Name="ListScipting" Grid.Row="1" >
+        <ListBox  MaxWidth="361" Grid.Column="1" Name="ListScipting" Margin="0,54,0,0" Grid.RowSpan="2" HorizontalAlignment="Center" Width="360" >
             <ListBox.ItemTemplate >
                 <DataTemplate >
                     <Grid>
-                        <TextBox  Text="{Binding scripting}"></TextBox>
+                        <TextBox BorderBrush="Black"  TextWrapping="Wrap" MaxHeight="1000" MaxWidth="361" Text="{Binding scripting}"></TextBox>
                     </Grid>
                 </DataTemplate>
             </ListBox.ItemTemplate>
         </ListBox>
-        <TextBlock  HorizontalAlignment="Left" Margin="10,0,0,0" Text="Выберите таблицы с данными которые нужно мигрировать" TextWrapping="Wrap" VerticalAlignment="Center" Height="44" Width="359"/>
-        <Button x:Name="MigrationMainWPF" Content="Мигрировать" HorizontalAlignment="Center" Grid.Row="2" VerticalAlignment="Center" Height="20" Width="108" Click="MigrationMainWPF_Click" Grid.Column="1"/>
-        <Button x:Name="ConnectMainWPF" Content="подключение к базе данных PostgresSql" HorizontalAlignment="Left" Margin="10,0,0,0" Grid.Row="2" VerticalAlignment="Center" Width="241" Click="ConnectMainWPF_Click"/>
-        <Button x:Name="SqlScripting" Content="Сформировать Sql скрипт" HorizontalAlignment="Left" Margin="271,0,0,0" Grid.Row="2" VerticalAlignment="Center" Width="186" Grid.ColumnSpan="2" Click="SqlScripting_Click"/>
+        <TextBlock  HorizontalAlignment="Left" Margin="10,0,0,0" Text="Выберите таблицы с данными которые нужно мигрировать" TextWrapping="Wrap" VerticalAlignment="Center" Height="44" Width="359" Grid.ColumnSpan="2"/>
+        <Button x:Name="MigrationMainWPF" Content="Мигрировать" HorizontalAlignment="Left" Grid.Row="2" VerticalAlignment="Center" Height="20" Width="108" Click="MigrationMainWPF_Click" Grid.Column="1" Margin="156,0,0,0"/>
+        <Button x:Name="ConnectMainWPF" Content="подключение к базе данных PostgresSql" HorizontalAlignment="Left" Margin="10,0,0,0" Grid.Row="2" VerticalAlignment="Center" Width="241" Click="ConnectMainWPF_Click" Height="20"/>
+        <Button x:Name="SqlScripting" Content="Сформировать Sql скрипт" HorizontalAlignment="Left" Margin="271,0,0,0" Grid.Row="2" VerticalAlignment="Center" Width="186" Grid.ColumnSpan="2" Click="SqlScripting_Click" Height="20"/>
 
     </Grid>
 </Window>

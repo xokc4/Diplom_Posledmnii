@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Diplom_Posledmnii"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="400">
+        Title="Подключение к MySql" Height="450" Width="400">
     <Grid>
         <Button Content="Подключиться к базе данных" HorizontalAlignment="Left" x:Name="ButtonMigr" Margin="153,361,0,0" VerticalAlignment="Top" Width="174" Click="ButtonMigr_Click"/>
         <TextBox HorizontalAlignment="Left" Margin="141,117,0,0" TextWrapping="Wrap" x:Name="AdressMySql"  VerticalAlignment="Top" Width="198"/>

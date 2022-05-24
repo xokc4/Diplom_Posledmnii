@@ -1,16 +1,10 @@
-﻿using System;
+﻿
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Text.RegularExpressions;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
+
 
 namespace Diplom_Posledmnii.WindowsWPF
 {
@@ -40,8 +34,10 @@ namespace Diplom_Posledmnii.WindowsWPF
 
         private void MigrationMainWPF_Click(object sender, RoutedEventArgs e)
         {
-            string Scripts = "";
-            PostgersSqlBD.PostgresSql.ScriptsCreatTable(Scripts);
+            foreach(var item in ListScriptTable)
+            {
+                PostgersSqlBD.PostgresSql.ScriptsCreatTable(item.scripting);
+            }
         }
         public static List<TablesMySql> ListTablesMethod(List<string> vs)
         {
@@ -106,8 +102,18 @@ namespace Diplom_Posledmnii.WindowsWPF
                     string[] vs = ItemString.Split(new char[] { ','});
                     for (int i = 0; i < vs.Length; i++)
                     {
-                        if(i==0) script += $"{vs[i]}";
-                        else script += $",{vs[i]}";
+                        int WorldItem = Word(vs[i]);
+                        if (WorldItem==1)
+                        {
+                            if (i == 0) script += $"{vs[i]}";
+                            else script += $",{vs[i]}";
+                        }
+                        if (WorldItem==2)
+                        {
+                            if (i == 0) script += $"\"{vs[i]}\"";
+                            else script += $",\"{vs[i]}\"";
+                        }
+                        
                     }
                     if(last== ItemString.ToString())script += $")";
                     else script += $"),";
@@ -116,7 +122,25 @@ namespace Diplom_Posledmnii.WindowsWPF
                 ListScriptTable.Add(new ScriptingPostgreSql(script));
             }
         }
-
+        public static int Word(string i)
+        {
+            int w = 0;
+            if(Regex.IsMatch(i, @"^[0-9]+$"))
+            {
+                w = 1;
+                return w;
+            }
+            if(Regex.IsMatch(i, @"^[a-zA-Z0-9]+$"))
+            {
+                w = 2;
+                return w;
+            }
+            else
+            {
+                w = 1;
+                return w;
+            }
+        }
 
 
 

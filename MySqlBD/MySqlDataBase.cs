@@ -36,7 +36,6 @@ namespace MySqlBD
 
             return conn;
         }
-       
         public static List<string> DatabaseTablies()
         {
             MySqlConnection conn = GetDBConnection(HOST, PORT, DATABASE, USERNAME, PASSWORD);
@@ -57,8 +56,6 @@ namespace MySqlBD
             conn.Close();
             return List;
         }
-
-
 
         public static Dictionary<string, string> TabliesOne(string NameTable)
         {

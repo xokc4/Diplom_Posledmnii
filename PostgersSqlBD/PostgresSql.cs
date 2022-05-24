@@ -60,15 +60,12 @@ namespace PostgersSqlBD
                 NpgsqlConnection conn = GetDBConnection(HOST, DATABASE, USERNAME, PASSWORD);
                 conn.Open();
                 NpgsqlCommand npgc = new NpgsqlCommand(scripts, conn);
-
-
                 conn.Close();
             }
             catch(Exception e)
             {
                  e.ToString();
             }
-           
         }
     }
 }
